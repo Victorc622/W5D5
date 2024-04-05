@@ -65,6 +65,10 @@ def directed_by_one_of(them)
   # Find the id and title of all the movies directed by one of 'them'.
   
   # Note: Directors appear in the 'actors' table.
+  Actor
+    .select('movies.id', 'movies.title')
+    .joins(:directed_movies)
+    .where(name: them)
 
 end
 
